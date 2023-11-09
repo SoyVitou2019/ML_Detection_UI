@@ -1,5 +1,4 @@
 import gradio as gr
-from assets.model import XG_boosting_prediction
 from clients import send_request
 import json
 import ast
@@ -26,7 +25,6 @@ def save_non_abuse_class(top_classes):
     
     
 def prediction(img):
-    # top_classes = XG_boosting_prediction(img)
     top_classes = send_request(img_input=img, url='http://18.139.116.122/')
     print(top_classes)
     save_class = save_non_abuse_class(top_classes)
